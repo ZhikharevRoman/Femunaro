@@ -1,180 +1,136 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой умный дневник</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Файлы Фемунаро</title>
     <style>
       :root {
-        --bg-color: #121212;
-        --card-color: #1e1e2e;
-        --text-color: #f5f5f5;
-        --accent-color: #89b4fa;
-        --danger-color: #f38ba8;
+        --bg-color: #f0f2f5;
+        --card-bg: #ffffff;
+        --primary: #2563eb;
+        --primary-hover: #1d4ed8;
+        --text: #1f2937;
+        --border: #e5e7eb;
       }
 
       body {
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         background-color: var(--bg-color);
-        color: var(--text-color);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
+        color: var(--text);
         margin: 0;
         padding: 20px;
+        line-height: 1.6;
       }
 
       .container {
-        background-color: var(--card-color);
-        padding: 30px;
-        border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        max-width: 500px;
-        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      header {
         text-align: center;
+        margin-bottom: 40px;
       }
 
       h1 {
-        color: var(--accent-color);
-        margin-bottom: 20px;
+        color: var(--text);
         font-size: 2rem;
+        margin: 0;
       }
 
-      p.subtitle {
-        color: #94a1b2;
-        margin-bottom: 30px;
-        line-height: 1.5;
-      }
-
-      textarea {
-        width: 100%;
-        padding: 15px;
-        border-radius: 8px;
-        border: 1px solid #313238;
-        background-color: #0f0f11;
-        color: white;
-        font-size: 1rem;
-        resize: vertical;
-        min-height: 120px;
-        box-sizing: border-box;
-        margin-bottom: 15px;
-        outline: none;
-      }
-
-      textarea:focus {
-        border-color: var(--accent-color);
-      }
-
-      .btn-group {
+      .file-card {
+        background-color: var(--card-bg);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        margin-bottom: 24px;
         display: flex;
-        gap: 10px;
-        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        border: 1px solid var(--border);
       }
 
-      button {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      .file-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: 0 0 8px 0;
       }
 
-      .btn-save {
-        background-color: var(--accent-color);
-        color: #121212;
+      .file-desc {
+        color: #6b7280;
+        font-size: 0.95rem;
+        margin: 0;
       }
 
-      .btn-save:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(137, 180, 250, 0.4);
+      .file-preview {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        object-fit: contain;
+        max-height: 300px;
+        border: 1px solid var(--border);
       }
 
-      .btn-clear {
-        background-color: var(--danger-color);
+      .download-btn {
+        display: inline-block;
+        background-color: var(--primary);
         color: white;
+        padding: 12px 24px;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.2s ease, transform 0.1s ease;
       }
 
-      .btn-clear:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(243, 139, 168, 0.4);
+      .download-btn:hover {
+        background-color: var(--primary-hover);
+        transform: translateY(-1px);
       }
 
-      .status {
-        margin-top: 20px;
-        font-size: 0.9rem;
-        color: #666;
-        min-height: 1.2em;
+      .download-btn:active {
+        transform: translateY(0);
       }
 
-      .status.success { color: var(--accent-color); }
-      .status.error { color: var(--danger-color); }
+      .file-meta {
+        font-size: 0.85rem;
+        color: #9ca3af;
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      @media (max-width: 600px) {
+        body { padding: 15px; }
+        .file-card { padding: 20px; }
+      }
     </style>
   </head>
   <body>
-
     <div class="container">
-      <h1>📒 Мой Дневник</h1>
-      <p class="subtitle">Напиши что-нибудь. Сайт запомнит это даже после перезагрузки страницы.</p>
-      
-      <textarea id="noteInput" placeholder="Здесь можно писать мысли, планы, идеи..."></textarea>
-      
-      <div class="btn-group">
-        <button class="btn-save" onclick="saveNote()">Сохранить</button>
-        <button class="btn-clear" onclick="clearNote()">Очистить</button>
-      </div>
+      <header>
+        <h1>Файлы Фемунаро</h1>
+      </header>
 
-      <div class="status" id="statusMessage"></div>
+      <!-- КАРТОЧКА 1: ФЛАГ -->
+      <article class="file-card">
+        <h2 class="file-title">Флаг Фемунаро</h2>
+        <p class="file-desc">Официальный флаг проекта. Высокое качество.</p>
+        <img src="Флаг Фемунаро.png" alt="Флаг Фемунаро" class="file-preview" />
+        <a href="Флаг Фемунаро.png" class="download-btn" download>Скачать флаг</a>
+        <div class="file-meta">Файл: Флаг Фемунаро.png</div>
+      </article>
+
+      <!-- КАРТОЧКА 2: ГЕРБ -->
+      <article class="file-card">
+        <h2 class="file-title">Герб Фемунаро</h2>
+        <p class="file-desc">Символика и эмблема проекта.</p>
+        <img src="Герб Фемунаро.png" alt="Герб Фемунаро" class="file-preview" />
+        <a href="Герб Фемунаро.png" class="download-btn" download>Скачать герб</a>
+        <div class="file-meta">Файл: Герб Фемунаро.png</div>
+      </article>
+
     </div>
-
-    <script>
-      // Элементы страницы
-      const noteInput = document.getElementById('noteInput');
-      const statusMessage = document.getElementById('statusMessage');
-
-      // 1. При загрузке страницы пытаемся найти сохраненный текст
-      window.onload = function() {
-        const savedText = localStorage.getItem('myDiaryNote');
-        if (savedText) {
-          noteInput.value = savedText;
-          showStatus('Текст восстановлен из памяти браузера', 'success');
-        } else {
-          showStatus('Нет сохраненных записей', 'success');
-        }
-      };
-
-      // 2. Функция сохранения (LocalStorage)
-      function saveNote() {
-        const text = noteInput.value;
-        
-        if (!text.trim()) {
-          showStatus('Сначала напишите что-нибудь!', 'error');
-          return;
-        }
-
-        localStorage.setItem('myDiaryNote', text);
-        showStatus('✅ Сохранено! Теперь можно обновлять страницу.', 'success');
-      }
-
-      // 3. Функция очистки
-      function clearNote() {
-        if(confirm('Вы уверены, что хотите удалить запись?')) {
-          localStorage.removeItem('myDiaryNote');
-          noteInput.value = '';
-          showStatus('Запись удалена', 'success');
-        }
-      }
-
-      // 4. Вспомогательная функция для показа сообщений
-      function showStatus(message, type) {
-        statusMessage.textContent = message;
-        statusMessage.className = 'status ' + type;
-      }
-    </script>
   </body>
 </html>
