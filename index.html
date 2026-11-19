@@ -1,136 +1,159 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Файлы Фемунаро</title>
-    <style>
-      :root {
-        --bg-color: #f0f2f5;
-        --card-bg: #ffffff;
-        --primary: #2563eb;
-        --primary-hover: #1d4ed8;
-        --text: #1f2937;
-        --border: #e5e7eb;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фемунаро — официальная страница</title>
+  <style>
+    :root {
+      --bg: #f5f2ea;
+      --accent: #1e4d3b;
+      --accent-light: #2e6b52;
+      --text: #2b2b2b;
+      --card: #ffffff;
+    }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      line-height: 1.7;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 24px; }
 
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text);
-        margin: 0;
-        padding: 20px;
-        line-height: 1.6;
-      }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    header h1 { margin: 0; font-size: 2.4rem; letter-spacing: 2px; }
+    header p { margin: 8px 0 0; opacity: 0.85; font-style: italic; }
 
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
+    h2 {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent-light);
+      padding-bottom: 6px;
+      margin-top: 48px;
+    }
 
-      header {
-        text-align: center;
-        margin-bottom: 40px;
-      }
+    .symbols { display: flex; flex-wrap: wrap; gap: 24px; margin-top: 24px; }
+    .symbol-card {
+      background: var(--card);
+      border: 1px solid #e0d9c8;
+      border-radius: 10px;
+      padding: 20px;
+      flex: 1 1 260px;
+      text-align: center;
+    }
+    .symbol-card img {
+      max-width: 100%;
+      max-height: 220px;
+      border-radius: 6px;
+      object-fit: contain;
+    }
+    .symbol-card h3 { margin: 12px 0 4px; color: var(--accent); }
+    .symbol-card p { font-size: 0.92rem; margin: 0; text-align: left; }
 
-      h1 {
-        color: var(--text);
-        font-size: 2rem;
-        margin: 0;
-      }
+    .join {
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-top: 48px;
+    }
 
-      .file-card {
-        background-color: var(--card-bg);
-        border-radius: 16px;
-        padding: 24px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        margin-bottom: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        border: 1px solid var(--border);
-      }
+    footer {
+      margin-top: 64px;
+      padding: 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8a8375;
+      border-top: 1px solid #e0d9c8;
+    }
+  </style>
+</head>
+<body>
 
-      .file-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--text);
-        margin: 0 0 8px 0;
-      }
+  <header>
+    <h1>ФЕМУНАРО</h1>
+    <p>Официальная страница государства</p>
+  </header>
 
-      .file-desc {
-        color: #6b7280;
-        font-size: 0.95rem;
-        margin: 0;
-      }
+  <div class="container">
 
-      .file-preview {
-        width: 100%;
-        height: auto;
-        border-radius: 12px;
-        object-fit: contain;
-        max-height: 300px;
-        border: 1px solid var(--border);
-      }
+    <h2>О Фемунаро</h2>
+    <p>
+      Фемунаро — сообщество и государство, рождённое из идеи. Летом 2023 года у основателя
+      страны появилась мысль создать собственный язык. Сначала это был простой шифр, который
+      постепенно улучшался и усложнялся, пока не превратился в настоящий алфавит. А однажды,
+      в разговоре с бабушкой, родилось решение смелее: если есть свой язык — пусть будет и своя страна.
+    </p>
+    <p>
+      Название «Фемунаро» сложилось из первых слогов имён и кличек: Федя, Мурена, Наташа и Рома.
+      Все четыре взяты в ласковой форме — так имя страны звучит мягко и дружелюбно, а не резко и строго.
+      Имена выстроены по строгой иерархии — от старших к младшим, от животных к людям —
+      и вместе образуют имя целой страны.
+    </p>
 
-      .download-btn {
-        display: inline-block;
-        background-color: var(--primary);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 10px;
-        text-align: center;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.2s ease, transform 0.1s ease;
-      }
+    <h2>Что нас объединяет</h2>
+    <p>
+      Фемунаро — это сообщество людей, которые ценят уважение к чужому труду и хотят сделать
+      мир лучше. Мы стремимся жить в системе, защищённой от тех, кто способен нахамить,
+      причинить вред или испортить чужое имущество. И от простых вещей, которые почему-то
+      многие не делают: не мусорить, не рвать цветы без нужды, не разрисовывать стены.
+      Это не великое — это обычные правила приличия, которые держат мир в порядке.
+    </p>
+    <p>
+      Мы верим в простую вещь: если каждый будет вести себя хорошо, мир действительно станет
+      хорошим. Многие уверены, что так никто не поступит — и потому никто и не старается.
+      Это замкнутый круг. Фемунаро создано, чтобы его нарушить и доказать: это возможно.
+    </p>
 
-      .download-btn:hover {
-        background-color: var(--primary-hover);
-        transform: translateY(-1px);
-      }
+    <h2>Государственная символика</h2>
+    <p>
+      Флаг и герб Фемунаро — не украшение, а сжатая история страны.
+    </p>
 
-      .download-btn:active {
-        transform: translateY(0);
-      }
-
-      .file-meta {
-        font-size: 0.85rem;
-        color: #9ca3af;
-        margin-top: 8px;
-        text-align: center;
-      }
-
-      @media (max-width: 600px) {
-        body { padding: 15px; }
-        .file-card { padding: 20px; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Файлы Фемунаро</h1>
-      </header>
-
-      <!-- КАРТОЧКА 1: ФЛАГ -->
-      <article class="file-card">
-        <h2 class="file-title">Флаг Фемунаро</h2>
-        <p class="file-desc">Официальный флаг проекта. Высокое качество.</p>
-        <img src="Флаг Фемунаро.png" alt="Флаг Фемунаро" class="file-preview" />
-        <a href="Флаг Фемунаро.png" class="download-btn" download>Скачать флаг</a>
-        <div class="file-meta">Файл: Флаг Фемунаро.png</div>
-      </article>
-
-      <!-- КАРТОЧКА 2: ГЕРБ -->
-      <article class="file-card">
-        <h2 class="file-title">Герб Фемунаро</h2>
-        <p class="file-desc">Символика и эмблема проекта.</p>
-        <img src="Герб Фемунаро.png" alt="Герб Фемунаро" class="file-preview" />
-        <a href="Герб Фемунаро.png" class="download-btn" download>Скачать герб</a>
-        <div class="file-meta">Файл: Герб Фемунаро.png</div>
-      </article>
-
+    <div class="symbols">
+      <div class="symbol-card">
+        <img src="Флаг%20Фемунаро.png" alt="Флаг Фемунаро">
+        <h3>Флаг</h3>
+        <p>
+          Флаг несёт четыре цвета, а в центре — красная символика: буква «Ф» старого алфавита
+          языка мултес, первого языка страны. По транслитерации она обозначала букву «ф» —
+          первую букву названия государства. Позже алфавит сменился, но флаг остался как память
+          о первом алфавите — как если бы на современном флаге России сохранилась буква
+          из алфавита Российской империи.
+        </p>
+      </div>
+      <div class="symbol-card">
+        <img src="Герб%20Фемунаро.png" alt="Герб Фемунаро">
+        <h3>Герб</h3>
+        <p>
+          Герб — знак дружелюбия и тёплого отношения к животным. Это не правило и не обязанность:
+          одни любят кошек и собак, другие — нет, и каждый имеет право жить в Фемунаро.
+          Но дух страны — доброжелательный, и герб напоминает об этом.
+        </p>
+      </div>
     </div>
-  </body>
+
+    <h2>Финансовая система</h2>
+    <p>
+      Финансы Фемунаро устроены иначе, чем в обычных странах. Здесь полностью исключена
+      инфляция: всё привязано к стабильной валюте, поэтому цены в магазинах не растут годами
+      и даже десятилетиями. Это значит, что деньги можно просто копить — и не бояться,
+      что они подешевеют. Такая система делает жизнь проще и спокойнее: накопленное сегодня
+      останется ценным и завтра.
+    </p>
+
+    <p class="join">
+      Присоединяйтесь! Если вам близки эти идеи — Фемунаро открыто для вас.
+    </p>
+
+  </div>
+
+  <footer>
+    © Фемунаро. Официальная страница государства.
+  </footer>
+
+</body>
 </html>
